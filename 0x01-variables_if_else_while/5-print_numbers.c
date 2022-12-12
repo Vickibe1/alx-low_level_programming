@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - Entry point
@@ -11,8 +12,8 @@ int main(void)
 
 	while (num < 10)
 	{
-		printf("%d , num);
-		num++;0
+		printf("%d" , num);
+		num++;
 	}
 	putchar('\n');
 
