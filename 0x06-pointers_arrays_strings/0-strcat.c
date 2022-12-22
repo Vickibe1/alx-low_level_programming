@@ -9,6 +9,7 @@
 char *_strcat(char *dest, char *src)
 {
 	int index = 0, dest_length = 0;
+
 	while (dest[index++])
 		dest_length++;
 
