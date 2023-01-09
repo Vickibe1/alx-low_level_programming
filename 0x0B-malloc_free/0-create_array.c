@@ -5,7 +5,7 @@
  * create_array - creates an array of chars dynamically
  * @size: size of the array
  * @c: the string
- * 
+ *
  * Return: 0 means success except defined otherwise
  */
 char *create_array(unsigned int size, char c)
