@@ -36,6 +36,7 @@ char *create_xarray(int size)
 	int index;
 
 	array = malloc(sizeof(char) * size);
+
 	if (array == NULL)
 		exit(98);
 
@@ -100,12 +101,15 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
 		*prod = 'x';
 		prod++;
 	}
+
 	prod--;
+
 	while (zeroes--)
 	{
 		*prod = '0';
 		prod--;
 	}
+
 	for (; mult_len >= 0; mult_len--, mult--, prod--)
 	{
 		if (*mult < '0' || *mult > '9')
@@ -118,6 +122,7 @@ void get_prod(char *prod, char *mult, int digit, int zeroes)
 		*prod = (num % 10) + '0';
 		tens = num / 10;
 	}
+
 	if (tens)
 		*prod = (tens % 10) + '0';
 }
@@ -207,6 +212,7 @@ int main(int argc, char *argv[])
 			putchar(final_prod[index]);
 	}
 	putchar('\n');
+
 	free(next_prod);
 	free(final_prod);
 
