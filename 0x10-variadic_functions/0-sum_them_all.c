@@ -4,18 +4,24 @@
 /**
  * sum_them_all - Returns the sum of all its paramters.
  * @n: Integers to add
- * Return: sum
+ * @...: A variable number of paramters to calculate the sum of.
+ *
+ * Return: If n == 0 - 0.
+ * Otherwise - the sum of all parameters.
  */
 int sum_them_all(const unsigned int n, ...)
 {
 	va_list valist;
-	unsigned int sum = 0, i;
+	unsigned int i, sum = 0;
 
-	/*iterate through list, update sum, free list */
+	va_start(args, n);
 
+	if (n != 0)
+	{
 	for (i = 0; i < n; i++)
-		sum += va_arg(valist, int);
-	va_end(valist);
+		sum += va_arg(args, int);
+	}
+	va_end(args);
 
 	return (sum);
 }
