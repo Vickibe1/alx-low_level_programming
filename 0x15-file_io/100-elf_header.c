@@ -26,6 +26,7 @@ void close_elf(int elf);
 void check_elf(unsigned char *e_ident)
 {
 	int index;
+
 	for (index = 0; index < 4; index++)
 	{
 		if (e_ident[index] != 127 &&
@@ -93,7 +94,7 @@ void print_class(unsigned char *e_ident)
 void print_data(unsigned char *e_ident)
 {
 	printf("  Data:                              ");
-	
+
 	switch (e_ident[EI_DATA])
 	{
 		case ELFDATANONE:
@@ -118,7 +119,7 @@ void print_version(unsigned char *e_ident)
 {
 	printf("  Version:                           %d",
 			e_ident[EI_VERSION]);
-	
+
 	switch (e_ident[EI_VERSION])
 	{
 		case EV_CURRENT:
@@ -137,7 +138,7 @@ void print_version(unsigned char *e_ident)
 void print_osabi(unsigned char *e_ident)
 {
 	printf("  OS/ABI:                            ");
-	
+
 	switch (e_ident[EI_OSABI])
 	{
 		case ELFOSABI_NONE:
@@ -289,7 +290,9 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		free(header);
 		close_elf(o);
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
+		exit(98);
 	}
+
 	check_elf(header->e_ident);
 	printf("ELF Header:\n");
 	print_magic(header->e_ident);
